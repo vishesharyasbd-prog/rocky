@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f3ff">
+  <meta name="description" content="Explore cricket analysis, match insights and updates with Rocky Cricket Astro on Telegram.">
+
+  <title>Rocky Cricket Astro | Official Telegram Channel</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1634373991406787');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1634373991406787&ev=PageView&noscript=1"
+    alt="">
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #22203a;
+      --muted: #716e86;
+      --purple: #7656e8;
+      --purple-dark: #5234c4;
+      --line: rgba(255,255,255,.9);
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 8% 12%, #e5dcff 0, transparent 36%),
+        radial-gradient(ellipse at 92% 85%, #ffe8d9 0, transparent 34%),
+        linear-gradient(145deg, #faf9ff, #f0effb 52%, #fffaf5);
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: .4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background: #b8a2ff;
+      top: 12%;
+      left: -120px;
+    }
+
+    body::after {
+      background: #ffcba7;
+      right: -120px;
+      bottom: 8%;
+    }
+
+    .topbar {
+      width: 100%;
+      max-width: 1100px;
+      padding: 23px 22px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -.35px;
+    }
+
+    .brand span {
+      color: var(--purple);
+    }
+
+    .live-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #4b8a67;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(95,165,119,.2);
+      padding: 9px 12px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .live-dot {
+      height: 7px;
+      width: 7px;
+      background: #55b87b;
+      border-radius: 50%;
+      box-shadow: 0 0 9px rgba(85,184,123,.55);
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 28px 18px 55px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 470px;
+      text-align: center;
+      padding: 40px 29px 30px;
+      border-radius: 30px;
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,.83),
+        rgba(255,255,255,.48)
+      );
+      border: 1px solid var(--line);
+      box-shadow:
+        0 30px 80px rgba(78,60,133,.13),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -1px 0 rgba(255,255,255,.45);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      position: relative;
+      overflow: hidden;
+    }                  .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(
+        90deg, transparent, #fff, transparent
+      );
+    }
+
+    .orb {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: -95px;
+      right: -65px;
+      border-radius: 50%;
+      background: rgba(154,124,255,.18);
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
+    .logo {
+      width: 94px;
+      height: 94px;
+      margin: 0 auto 22px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #a48aff, #6544d6);
+      box-shadow:
+        0 12px 30px rgba(108,77,219,.3),
+        inset 0 2px 2px rgba(255,255,255,.65),
+        inset 0 -3px 5px rgba(49,26,132,.22);
+      border: 1px solid rgba(255,255,255,.75);
+      transform: rotate(-4deg);
+    }
+
+    .logo svg {
+      width: 51px;
+      height: 51px;
+      filter: drop-shadow(0 3px 3px rgba(35,20,90,.15));
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      margin-bottom: 17px;
+      border: 1px solid rgba(118,86,232,.16);
+      border-radius: 50px;
+      background: rgba(255,255,255,.68);
+      color: var(--purple-dark);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(30px, 7vw, 39px);
+      line-height: 1.13;
+      letter-spacing: -1.5px;
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    h1 span {
+      background: linear-gradient(100deg, #6847d8, #a16ce9, #6442ca);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      max-width: 335px;
+      margin: 16px auto 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 11px;
+      text-align: left;
+      margin: 0 0 25px;
+      padding: 17px;
+      background: rgba(255,255,255,.52);
+      border: 1px solid rgba(255,255,255,.88);
+      border-radius: 18px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 13px;
+      font-weight: 650;
+      color: #45415f;
+      line-height: 1.5;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #6a4bd6;
+      background: #eee8ff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .join-btn {
+      width: 100%;
+      min-height: 59px;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: .5px;
+      background: linear-gradient(110deg, #6542d5, #8c65f4 55%, #6a46d8);
+      box-shadow:
+        0 12px 26px rgba(105,71,211,.28),
+        inset 0 1px 0 rgba(255,255,255,.38),
+        inset 0 -2px 0 rgba(49,26,132,.15);
+      transition: transform .2s, box-shadow .2s;
+      isolation: isolate;
+      cursor: pointer;
+    }
+
+    .join-btn::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -60%;
+      left: -100%;
+      width: 65%;
+      height: 220%;
+      transform: rotate(25deg);
+      background: linear-gradient(
+        90deg, transparent, rgba(255,255,255,.34), transparent
+      );
+      animation: shine 4s ease-in-out infinite;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(105,71,211,.34);
+    }
+
+    .join-btn:focus-visible {
+      outline: 3px solid #aa95ff;
+      outline-offset: 4px;
+    }
+
+    .join-btn:active {
+      transform: scale(.985);
+    }
+
+    .join-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    @keyframes shine {
+      0%, 55% { left: -100%; }
+      85%, 100% { left: 150%; }
+    }
+ .secure-note {
+      margin-top: 16px;
+      color: #89849c;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 23px 0 16px;
+      background: linear-gradient(
+        90deg, transparent, rgba(115,97,160,.18), transparent
+      );
+    }
+
+    .footer-note {
+      font-size: 11px;
+      line-height: 1.8;
+      color: #858097;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 20px 24px;
+      font-size: 11px;
+      color: #89849b;
+    }
+
+    @media (max-width: 380px) {
+      .card { padding: 32px 20px 25px; border-radius: 25px; }
+      .topbar { padding: 18px 15px; }
+      .brand { font-size: 13px; }
+      .live-tag { font-size: 10px; }
+      h1 { font-size: 30px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">ROCKY <span>CRICKET ASTRO</span></div>
+    <div class="live-tag">
+      <span class="live-dot"></span>
+      TELEGRAM CHANNEL
+    </div>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="page-title">
+      <div class="orb"></div>
+
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M13 39L25 17L39 44L47 29L54 39"
+                stroke="white" stroke-width="5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="46" cy="15" r="6" fill="#F7E6A7"/>
+          <path d="M12 49H52" stroke="white" stroke-width="4"
+                stroke-linecap="round" opacity=".8"/>
+        </svg>
+      </div>
+
+      <div class="eyebrow">YOUR CRICKET INSIGHTS HUB</div>
+
+      <h1 id="page-title">
+        ROCKY<br>
+        <span>CRICKET ASTRO</span>
+      </h1>
+
+      <p class="subtitle">
+        Match insights, cricket analysis and channel updates —
+        all in one place.
+      </p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <span class="check">✓</span>
+          Cricket match analysis and insights
+        </div>
+        <div class="benefit">
+          <span class="check">✓</span>
+          Match-day updates on Telegram
+        </div>
+        <div class="benefit">
+          <span class="check">✓</span>
+          Follow the channel for new posts
+        </div>
+      </div>
+
+      <a
+        class="join-btn"
+        id="joinButton"
+        href="https://t.me/+Ta5wyXO5eHZmMjRl"
+        aria-label="Join Rocky Cricket Astro on Telegram"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.8 3.2a1.5 1.5 0 0 0-1.6-.3L2.7 9.6c-1.2.5-1.2 2.2.1 2.6l4.5 1.4 1.7 5.3c.4 1.1 1.8 1.3 2.5.4l2.6-3.2 4.6 3.4c.9.7 2.2.2 2.4-1l2.1-13.8a1.6 1.6 0 0 0-.4-1.5ZM9.1 13.2l8.8-6.3-7.2 7.8-.3 2.7-1.3-4.2Z"/>
+        </svg>
+        JOIN TELEGRAM NOW
+      </a>
+
+      <p class="secure-note">
+        Tap above to open the Telegram invite link.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="footer-note">
+        Cricket insights are for informational purposes only.
+        Match outcomes are uncertain. No results are guaranteed.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Rocky Cricket Astro
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    const joinButton = document.getElementById('joinButton');
+    const telegramURL = 'https://t.me/+Ta5wyXO5eHZmMjRl';
+    let clickInProgress = false;
+
+    joinButton.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      // Prevent accidental repeated clicks from firing duplicate events.
+      if (clickInProgress) return;
+      clickInProgress = true;
+
+      let redirected = false;
+      let fallbackTimer;
+ function continueToTelegram() {
+        if (redirected) return;
+        redirected = true;
+        clearTimeout(fallbackTimer);
+        window.location.href = telegramURL;
+      }
+
+      // Track one Subscribe event per accepted button click.
+      // This measures the click, not a confirmed Telegram membership.
+      if (typeof window.fbq === 'function') {
+        try {
+          window.fbq('track', 'Subscribe', {}, {
+            eventID: 'telegram-subscribe-' +
+              Date.now() + '-' + Math.random().toString(36).slice(2),
+            eventCallback: continueToTelegram
+          });
+        } catch (error) {
+          // Keep navigation working if tracking fails.
+        }
+      }
+
+      // Navigate even if the pixel is blocked or its callback never fires.
+      fallbackTimer = setTimeout(continueToTelegram, 700);
+    });
+  </script>
+</body>
+</html>
